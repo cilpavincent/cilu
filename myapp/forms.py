@@ -13,6 +13,8 @@ class DataForm(forms.ModelForm):
         model = Data
         fields = ['name','email','phone','photo','account_type']
 
+
+
 class FilterForm(forms.ModelForm):
     class Meta:
         model = Data
