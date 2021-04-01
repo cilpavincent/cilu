@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,th,td{border:2px solid;border-collapse: collapse;padding:10px;}
+    </style>
+</head>
+<body>
+    <h1>Applicant List</h1>
+    <h3>Filter</h3>
+    <form method="POST">
+        {% csrf_token %}
+        {{filter_form}}
+        <input type="submit" value="Filter">
+    </form>
+
+    <h3>Visualize</h3>
+    <form action="{% url 'visualize' %}">
+        <button type="submit">Visualize</button>
+    </form>
+    
+
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Photo</th>
+            <th>Account Type</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+        {% for applicant in applicants %}
+        <tr>
+            <td>{{applicant.id}}</td>
+            <td>{{applicant.name}}</td>
+            <td>{{applicant.email}}</td>
+            <td>{{applicant.phone}}</td>
+            <td><a href="{{applicant.photo.url}}">View Image</a></td>
+            <td>{{applicant.account_type}}</td>
+            <td>{{applicant.current_status}}</td>
+            <td>
+                <form method="POST" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    <button type="submit">Approve</button>
+                    <button type="submit">Reject</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+</body>
+</html>
