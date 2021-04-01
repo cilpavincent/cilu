@@ -21,9 +21,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = '4+oyz3(4y@sdfc!i4oa(q&8w7mmnt&&lirp84bm4e7p@ne1&pa'
-SECRET_KEY = os.environ.get('CILU_SECRET_KEY')
+SECRET_KEY = '834512d4f033d23dba1dd9f4cbbf936e10289d3575866a50'
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG_VALUE')
+DEBUG = True
 
 ALLOWED_HOSTS = ['cilu.herokuapp.com','127.0.0.1']
 
