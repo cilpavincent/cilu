@@ -37,7 +37,7 @@ def visualize(request):
     pending_data = Data.objects.filter(current_status="pending").count()
     approved_data = Data.objects.filter(current_status="approved").count()
     rejected_data = Data.objects.filter(current_status="rejected").count()
-    matplotlib.use('Agg')
+    # matplotlib.use('Agg')
 
     y = np.array([pending_data, approved_data, rejected_data])
     mylabels = ["Pending", "Approved", "Rejected"]
